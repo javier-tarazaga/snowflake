@@ -28,6 +28,11 @@ import {Actions} from 'react-native-router-flux'
  */
 import NavigationBar from 'react-native-navbar'
 
+/**
+* Lef navigation drawer
+**/
+import Drawer from 'react-native-drawer'
+import LefNavigationPanel from '../components/LeftNavigationPanel'
 
 /**
  * The Header will display a Image and support Hot Loading
@@ -106,6 +111,12 @@ I18n.translations = Translations
  * ## App class
  */
 class Home extends Component {
+ closeControlPanel = () => {
+    this._drawer.close()
+  };
+  openControlPanel = () => {
+    this._drawer.open()
+  };
 
   handlePress () {
     Actions.Subview({
@@ -125,16 +136,39 @@ class Home extends Component {
     }
 
     return (
-      <View style={styles.container}>
-        <NavigationBar
-          title={titleConfig} />
-        <View>
-          <Button style={styles.button} onPress={this.handlePress.bind(this)}>
-           {I18n.t('Main.navigate')}
-          </Button>
-        </View>
-      </View>
+            <Drawer
+                ref={(ref) => this._drawer = ref}
+                // open={state.open}
+                // onOpen={()=>Actions.refresh({key:state.key, open: true})}
+                // onClose={()=>Actions.refresh({key:state.key, open: false})}
+                type="static"
+                content={<LefNavigationPanel />}
+                tapToClose={true}
+                openDrawerOffset={0.2}
+                panCloseMask={0.2}
+                negotiatePan={true}
+                styles={drawerStyles}>
+                      <View style={styles.container}>
+                        <NavigationBar
+                          title={titleConfig} />
+                        <View>
+                          <Button style={styles.button} onPress={this.handlePress.bind(this)}>
+                           {I18n.t('Main.navigate')}
+                          </Button>
+                        <Button style={styles.button} onPress={this.openControlPanel.bind(this)}>
+                         Toggle Side Menu
+                        </Button>
+                        </View>
+                      </View>
+
+            </Drawer>
+
     )
+
+    const drawerStyles = {
+      drawer: { shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3},
+      main: {paddingLeft: 3},
+    }
   }
 };
 
