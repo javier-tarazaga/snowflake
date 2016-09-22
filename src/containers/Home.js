@@ -86,6 +86,7 @@ function mapDispatchToProps (dispatch) {
 var styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
+    backgroundColor: '#FFFFFF',
     flex: 1
   },
   summary: {
@@ -141,7 +142,7 @@ class Home extends Component {
                 // open={state.open}
                 // onOpen={()=>Actions.refresh({key:state.key, open: true})}
                 // onClose={()=>Actions.refresh({key:state.key, open: false})}
-                type="static"
+                type="overlay"
                 content={<LefNavigationPanel />}
                 tapToClose={true}
                 openDrawerOffset={0.2}

@@ -11,9 +11,6 @@ var LeftNavigationPanel = React.createClass({
   render() {
     return (
       <View style={styles.controlPanel}>
-        <Text style={styles.controlPanelWelcome}>
-          Control Panel
-        </Text>
         <Button
           onPress={this.props.closeDrawer}
           text="Close Drawer"
@@ -26,7 +23,7 @@ var LeftNavigationPanel = React.createClass({
 const styles = StyleSheet.create({
     controlPanel: {
       flex: 1,
-      backgroundColor:'#326945',
+      backgroundColor:'#1E2326',
     },
     controlPanelText: {
       color:'white',
