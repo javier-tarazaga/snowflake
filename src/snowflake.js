@@ -69,6 +69,7 @@ import Register from './containers/Register'
 import ForgotPassword from './containers/ForgotPassword'
 import Profile from './containers/Profile'
 import Main from './containers/Main'
+import Home from './containers/Home'
 import Subview from './containers/Subview'
 
 /**
@@ -173,6 +174,10 @@ export default function native (platform) {
                 type='replace'
                 initial />
 
+              <Scene key='Home'
+                component={Home}
+                type='replace' />
+
               <Scene key='InitialLoginForm'
                 component={Register}
                 type='replace' />
@@ -196,7 +201,7 @@ export default function native (platform) {
                 tabs
                 hideNavBar
                 tabBarStyle={styles.tabBar}
-                default='Main'>
+                default='Home'>
 
                 <Scene key='Logout'
                   title={I18n.t('Snowflake.logout')}

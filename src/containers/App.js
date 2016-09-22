@@ -23,6 +23,11 @@ import * as deviceActions from '../reducers/device/deviceActions'
 import * as globalActions from '../reducers/global/globalActions'
 
 /**
+ * Router
+ */
+import { Actions } from 'react-native-router-flux'
+
+/**
  * The components we need from ReactNative
  */
 import React from 'react'
@@ -101,9 +106,13 @@ let App = React.createClass({
         // Use a timer so App screen is displayed
     this.setTimeout(
             () => {
-              this.props.actions.getSessionToken()
+              //this.props.actions.getSessionToken()
+                Actions.Home({
+                  title: 'Subview'
+                  // you can add additional props to be passed to Subview here...
+                })
             },
-            2500
+            1000
         )
   },
 

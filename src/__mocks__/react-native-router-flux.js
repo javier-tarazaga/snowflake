@@ -3,5 +3,6 @@ module.exports = {
     Login: function () {},
     Tabbar: function () {},
     InitialLoginForm: function () {}
+    Home: function () {}
   }
 }
