@@ -112,7 +112,7 @@ let App = React.createClass({
                   // you can add additional props to be passed to Subview here...
                 })
             },
-            1000
+            200
         )
   },
 

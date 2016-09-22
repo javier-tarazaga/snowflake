@@ -2,6 +2,8 @@ import React from 'react'
 
 import { SwitchIOS, StyleSheet, View, Text } from 'react-native';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 /**
  * The platform neutral button
  */
@@ -11,10 +13,9 @@ var LeftNavigationPanel = React.createClass({
   render() {
     return (
       <View style={styles.controlPanel}>
-        <Button
-          onPress={this.props.closeDrawer}
-          text="Close Drawer"
-          />
+        <View style={{flex: 1}}/>
+        <View style={{height: 100, backgroundColor: 'steelblue'}}>
+        </View>
       </View>
     )
   }
@@ -22,7 +23,7 @@ var LeftNavigationPanel = React.createClass({
 
 const styles = StyleSheet.create({
     controlPanel: {
-      flex: 1,
+      flex: 2,
       backgroundColor:'#1E2326',
     },
     controlPanelText: {
