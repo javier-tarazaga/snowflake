@@ -1,0 +1,21 @@
+PODS:
+  - React (0.11.0):
+    - React/Core (= 0.11.0)
+  - React/Core (0.11.0)
+  - RNVectorIcons (2.0.3):
+    - React
+
+DEPENDENCIES:
+  - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
+
+EXTERNAL SOURCES:
+  RNVectorIcons:
+    :path: "../node_modules/react-native-vector-icons"
+
+SPEC CHECKSUMS:
+  React: ab1a2e21deb34965c38328d5ec40cc7d12c6050a
+  RNVectorIcons: 39a5d8b29e83a462cd8d16185144d308edc9273f
+
+PODFILE CHECKSUM: b15c636683f5ca0996fa07e3eefcbfd19897889d
+
+COCOAPODS: 1.0.1
