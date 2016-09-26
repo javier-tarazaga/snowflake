@@ -6,7 +6,6 @@ target 'snowflake' do
   # use_frameworks!
 
   # Pods for snowflake
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
   target 'snowflakeTests' do
     inherit! :search_paths
