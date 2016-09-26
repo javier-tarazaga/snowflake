@@ -34,6 +34,8 @@ import NavigationBar from 'react-native-navbar'
 import Drawer from 'react-native-drawer'
 import LefNavigationPanel from '../components/LeftNavigationPanel'
 
+import DisplayLatLng from '../components/DisplayLatLng'
+
 /**
  * The Header will display a Image and support Hot Loading
  */
@@ -149,19 +151,15 @@ class Home extends Component {
                 panCloseMask={0.2}
                 negotiatePan={true}
                 styles={drawerStyles}>
-                      <View style={styles.container}>
-                        <NavigationBar
-                          title={titleConfig} />
-                        <View>
-                          <Button style={styles.button} onPress={this.handlePress.bind(this)}>
-                           {I18n.t('Main.navigate')}
-                          </Button>
-                        <Button style={styles.button} onPress={this.openControlPanel.bind(this)}>
-                         Toggle Side Menu
-                        </Button>
-                        </View>
-                      </View>
+                        <View style={{ flex: 1, }}>
+                          <NavigationBar
+                            title={titleConfig}/>
+                          <DisplayLatLng />
 
+                          <Button style={styles.button} onPress={this.openControlPanel.bind(this)}>
+                           Toggle Side Menu
+                          </Button>
+                      </View>
             </Drawer>
 
     )
