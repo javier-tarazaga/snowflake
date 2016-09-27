@@ -22,7 +22,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import NavBar, { NavButton } from 'react-native-nav'
 
 // Maps
-import DisplayLatLng from '../components/DisplayLatLng'
+import DisplayLatLng from '../components/HomeMapView'
 
 
 // The components needed from React
