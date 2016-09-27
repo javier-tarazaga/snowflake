@@ -31,7 +31,8 @@ import
 {
   StyleSheet,
   View,
-  Text
+  Text,
+  TouchableWithoutFeedback
 }
   from 'react-native'
 
@@ -80,9 +81,16 @@ class Home extends Component {
     this._drawer.open()
   };
 
-  handlePress() {
+  handlePickUpPress() {
     Actions.Subview({
-      title: 'Subview'
+      title: 'Pick-Up'
+      // you can add additional props to be passed to Subview here...
+    })
+  }
+
+  handleDropOffPress() {
+    Actions.Subview({
+      title: 'Drop-Off'
       // you can add additional props to be passed to Subview here...
     })
   }
@@ -112,15 +120,19 @@ class Home extends Component {
             <View style={ styles.addressContainer }>
               <Text style={{ marginTop: 15, textAlign: 'center', fontWeight:'bold' }}>Get a quote in seconds</Text>
               <View style={{flex: 1, marginTop: 15, paddingLeft: 10, paddingRight: 10}}>
-                <View style={{flex: 1, flexDirection:'row' }}>
-                  <Icon name="archive" size={35} color="#444444"/>
-                  <Text style={{ marginTop: 10, marginLeft: 10, color: '#AAAAAA' }}>Enter pick-up address</Text>
-                </View>
-                <View style={{height: 1, backgroundColor: '#EEEEEE', marginLeft: 50, marginRight: 50 }}/>
-                <View style={{flex: 1, flexDirection:'row' }}>
-                  <Icon name="flag" size={35} color="#444444"/>
-                  <Text style={{ marginTop: 10, marginLeft: 10, color: '#AAAAAA' }}>Enter drop-off address</Text>
-                </View>
+                <TouchableWithoutFeedback onPress={this.handlePickUpPress.bind(this)}>
+                  <View style={{flex: 1, flexDirection:'row' }}>
+                    <Icon name="archive" size={35} color="#444444"/>
+                    <Text style={{ marginTop: 10, marginLeft: 10, color: '#AAAAAA' }}>Enter pick-up address</Text>
+                  </View>
+                </TouchableWithoutFeedback>
+                <View style={{ height: 1, backgroundColor: '#EEEEEE', marginLeft: 50, marginRight: 50 }}/>
+                <TouchableWithoutFeedback onPress={this.handleDropOffPress.bind(this)}>
+                  <View style={{flex: 1, flexDirection:'row' }}>
+                    <Icon name="flag" size={35} color="#444444"/>
+                    <Text style={{ marginTop: 10, marginLeft: 10, color: '#AAAAAA' }}>Enter drop-off address</Text>
+                  </View>
+                </TouchableWithoutFeedback>
               </View>
             </View>
           </View>
@@ -151,7 +163,7 @@ const styles = StyleSheet.create({
   addressContainer: {
     alignSelf: 'stretch',
     backgroundColor: '#FFFFFF',
-    height: 150,
+    height: 170,
     paddingLeft: 3
   }
 });
