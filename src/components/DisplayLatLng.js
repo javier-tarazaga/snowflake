@@ -67,20 +67,6 @@ class DisplayLatLng extends React.Component {
             {this.state.region.longitude.toPrecision(7)}
           </Text>
         </View>
-        <View style={styles.buttonContainer}>
-          <TouchableOpacity
-            onPress={() => this.jumpRandom()}
-            style={[styles.bubble, styles.button]}
-          >
-            <Text>Jump</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => this.animateRandom()}
-            style={[styles.bubble, styles.button]}
-          >
-            <Text>Animate</Text>
-          </TouchableOpacity>
-        </View>
       </View>
     );
   }
