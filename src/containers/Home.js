@@ -1,50 +1,32 @@
 /**
  * # Main.js
  *  This is the main app screen
- *
  */
-'use strict'
-/*
- * ## Imports
- *
- * Imports from redux
- */
+'use strict';
+
+// Redux
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-/**
- * The actions we need
- */
+// The actions we need
 import * as authActions from '../reducers/auth/authActions'
 import * as globalActions from '../reducers/global/globalActions'
 
-/**
- * Router
- */
-import {Actions} from 'react-native-router-flux'
+// Routing
+import { Actions } from 'react-native-router-flux'
 
-/**
- * Navigation Bar
- */
-import NavigationBar from 'react-native-navbar'
-
-/**
-* Lef navigation drawer
-**/
+// UI
 import Drawer from 'react-native-drawer'
 import LefNavigationPanel from '../components/LeftNavigationPanel'
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import NavBar, { NavButton } from 'react-native-nav'
 
+// Maps
 import DisplayLatLng from '../components/DisplayLatLng'
 
-/**
- * The Header will display a Image and support Hot Loading
- */
-import Header from '../components/Header'
 
-/**
- * The components needed from React
- */
-import React, {Component} from 'react'
+// The components needed from React
+import React, { Component } from 'react'
 import
 {
   StyleSheet,
@@ -52,10 +34,6 @@ import
 }
 from 'react-native'
 
-/**
- * The platform neutral button
- */
-const Button = require('apsl-react-native-button')
 
 /**
  *  Instead of including all app states via ...state
@@ -90,15 +68,13 @@ function mapDispatchToProps (dispatch) {
  */
 var I18n = require('react-native-i18n')
 import Translations from '../lib/Translations'
-I18n.translations = Translations
+I18n.translations = Translations;
 
 /**
  * ## App class
  */
 class Home extends Component {
- closeControlPanel = () => {
-    this._drawer.close()
-  };
+
   openControlPanel = () => {
     this._drawer.open()
   };
@@ -111,15 +87,6 @@ class Home extends Component {
   }
 
   render () {
-    var titleConfig = {
-      title: I18n.t('App.name')
-    }
-
-    var leftButtonConfig = {
-      title: 'Menu',
-      handler: Actions.pop
-    }
-
     return (
             <Drawer
                 ref={(ref) => this._drawer = ref}
@@ -135,26 +102,23 @@ class Home extends Component {
                 styles={styles.drawer}>
                         <View style={styles.container}>
                           <DisplayLatLng />
-                            <View style={styles.navbar}>
-                                <Button style={styles.button} onPress={this.openControlPanel.bind(this)}>
-                                 Toggle Side Menu
-                                </Button>
-                            </View>
+                          <NavBar>
+                            <NavButton onPress={this.openControlPanel.bind(this)}>
+                              <Icon name="menu" size={30} color="#444444" />
+                            </NavButton>
+                          </NavBar>
                       </View>
             </Drawer>
 
     )
   }
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'column',
     backgroundColor: '#FFFFFF',
     flex: 1
-  },
-  navbar: {
-    height: 40,
   },
   drawer: {
     shadowColor: '#000000',
@@ -163,18 +127,6 @@ const styles = StyleSheet.create({
   },
   main: {
     paddingLeft: 3
-  },
-  summary: {
-    fontFamily: 'BodoniSvtyTwoITCTT-Book',
-    fontSize: 18,
-    fontWeight: 'bold'
-  },
-  button: {
-    backgroundColor: '#FF3366',
-    borderColor: '#FF3366',
-    marginTop: 10,
-    marginLeft: 10,
-    marginRight: 10
   }
 });
 
