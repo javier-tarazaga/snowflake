@@ -1,6 +1,7 @@
 {
   "en": {
     "App": {
+      "name": "Snabb",
       "version": "Version"
     },
     "Header": {
@@ -62,12 +63,12 @@
     "Header": {
       "current_state": "état actuel",
       "see_console": "voir console",
-      "update_state": "état de mise à jour"      
-    },    
+      "update_state": "état de mise à jour"
+    },
     "Subview": {
       "subview": "Sous-vue",
       "back": "Arrière"
-    },    
+    },
     "Snowflake": {
       "logout": "Se déconnecter",
       "main": "Principal",
@@ -81,7 +82,7 @@
       "email": "Email",
       "update": "Mettre à jour le profil",
       "verified": "Email verifié",
-      "display": "afficher seulement"      
+      "display": "afficher seulement"
     },
     "LoginForm": {
       "username": "Nom d'utilisateur",
@@ -93,7 +94,7 @@
       "forgot_password": "Mot de passe oublié?",
       "already_have_account": "Vous avez déjà compte?",
       "register": "Registre",
-      "show_password": "Montrer le mot de passe"      
+      "show_password": "Montrer le mot de passe"
     },
     "ForgotPassword": {
       "reset_password": "Réinitialiser le mot de passe"
@@ -109,7 +110,7 @@
       "valid_email": "Fournir email valide",
       "valid_password": "6-12 en longueur, avec un nombre et un caractère spécial: !@#$%^&*",
       "valid_password_again": "les mots de passe doivent correspondre"
-    }    
+    }
   },
   "es": {
     "App": {
@@ -118,12 +119,12 @@
     "Header": {
       "current_state": "Estado actual",
       "see_console": "ver la consola",
-      "update_state": "Estado de actualización"      
-    },    
+      "update_state": "Estado de actualización"
+    },
     "Subview": {
       "subview": "Subview",
       "back": "Espalda"
-    },    
+    },
     "Snowflake": {
       "logout": "Cerrar sesión",
       "main": "Principal",
@@ -149,7 +150,7 @@
       "forgot_password": "Se te olvidó tu contraseña?",
       "already_have_account": "Ya tiene cuenta?",
       "register": "Registro",
-      "show_password": "Mostrar Contraseña"      
+      "show_password": "Mostrar Contraseña"
     },
     "ForgotPassword": {
       "reset_password": "Restablecer la contraseña"
@@ -165,8 +166,7 @@
       "valid_email": "Proveer de correo electrónico válida",
       "valid_password": "6-12 de longitud, con un número y carácter especial: !@#$%^&*",
       "valid_password_again": "Las contraseñas deben coincidir"
-    }    
+    }
   }
 
 }
-

@@ -85,24 +85,6 @@ function mapDispatchToProps (dispatch) {
   }
 }
 
-var styles = StyleSheet.create({
-  container: {
-    flexDirection: 'column',
-    backgroundColor: '#FFFFFF',
-    flex: 1
-  },
-  summary: {
-    fontFamily: 'BodoniSvtyTwoITCTT-Book',
-    fontSize: 18,
-    fontWeight: 'bold'
-  },
-  button: {
-    backgroundColor: '#FF3366',
-    borderColor: '#FF3366',
-    marginLeft: 10,
-    marginRight: 10
-  }
-})
 /**
  * ### Translations
  */
@@ -130,11 +112,11 @@ class Home extends Component {
 
   render () {
     var titleConfig = {
-      title: I18n.t('Subview.subview')
+      title: I18n.t('App.name')
     }
 
     var leftButtonConfig = {
-      title: I18n.t('Subview.back'),
+      title: 'Menu',
       handler: Actions.pop
     }
 
@@ -150,26 +132,51 @@ class Home extends Component {
                 openDrawerOffset={0.2}
                 panCloseMask={0.2}
                 negotiatePan={true}
-                styles={drawerStyles}>
-                        <View style={{ flex: 1, }}>
-                          <NavigationBar
-                            title={titleConfig}/>
+                styles={styles.drawer}>
+                        <View style={styles.container}>
                           <DisplayLatLng />
-
-                          <Button style={styles.button} onPress={this.openControlPanel.bind(this)}>
-                           Toggle Side Menu
-                          </Button>
+                            <View style={styles.navbar}>
+                                <Button style={styles.button} onPress={this.openControlPanel.bind(this)}>
+                                 Toggle Side Menu
+                                </Button>
+                            </View>
                       </View>
             </Drawer>
 
     )
-
-    const drawerStyles = {
-      drawer: { shadowColor: '#000000', shadowOpacity: 0.8, shadowRadius: 3},
-      main: {paddingLeft: 3},
-    }
   }
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'column',
+    backgroundColor: '#FFFFFF',
+    flex: 1
+  },
+  navbar: {
+    height: 40,
+  },
+  drawer: {
+    shadowColor: '#000000',
+    shadowOpacity: 0.8,
+    shadowRadius: 3
+  },
+  main: {
+    paddingLeft: 3
+  },
+  summary: {
+    fontFamily: 'BodoniSvtyTwoITCTT-Book',
+    fontSize: 18,
+    fontWeight: 'bold'
+  },
+  button: {
+    backgroundColor: '#FF3366',
+    borderColor: '#FF3366',
+    marginTop: 10,
+    marginLeft: 10,
+    marginRight: 10
+  }
+});
 
 /**
  * Connect the properties
