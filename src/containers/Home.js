@@ -110,12 +110,14 @@ class Home extends Component {
         negotiatePan={true}
         style={styles.drawer}>
         <View style={styles.container}>
-          <DisplayLatLng/>
-          <NavBar>
-            <NavButton onPress={this.openControlPanel.bind(this)}>
-              <Icon name="menu" size={30} color="#444444"/>
-            </NavButton>
-          </NavBar>
+          <View style={{flex: 3}}>
+            <DisplayLatLng/>
+            <NavBar>
+              <NavButton onPress={this.openControlPanel.bind(this)}>
+                <Icon name="menu" size={30} color="#444444"/>
+              </NavButton>
+            </NavBar>
+          </View>
           <View style={styles.content}>
             <View style={ styles.addressContainer }>
               <Text style={{ marginTop: 15, textAlign: 'center', fontWeight:'bold' }}>Get a quote in seconds</Text>
