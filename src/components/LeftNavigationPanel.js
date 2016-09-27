@@ -36,15 +36,15 @@ const styles = StyleSheet.create({
       backgroundColor:'#1E2326',
     },
     controlPanelText: {
-      color:'white',
+      color:'white'
     },
     controlPanelWelcome: {
       fontSize: 20,
       textAlign: 'center',
       margin: 25,
       color:'white',
-      fontWeight:'bold',
-    },
+      fontWeight:'bold'
+    }
 });
 
 module.exports = LeftNavigationPanel

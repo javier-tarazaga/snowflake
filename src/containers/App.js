@@ -1,4 +1,4 @@
-/**
+ /**
  * # app.js
  *  Display startup screen and
  *  getSessionTokenAtStartup which will navigate upon completion
