@@ -54,7 +54,7 @@ function mapStateToProps(state) {
       showState: state.global.showState
     }
   }
-};
+}
 
 /*
  * Bind all the actions
@@ -82,14 +82,14 @@ class Home extends Component {
   };
 
   handlePickUpPress() {
-    Actions.Subview({
+    Actions.DeliveryAddress({
       title: 'Pick-Up'
       // you can add additional props to be passed to Subview here...
     })
   }
 
   handleDropOffPress() {
-    Actions.Subview({
+    Actions.DeliveryAddress({
       title: 'Drop-Off'
       // you can add additional props to be passed to Subview here...
     })

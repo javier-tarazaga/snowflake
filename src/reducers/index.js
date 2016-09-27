@@ -28,6 +28,6 @@ const rootReducer = combineReducers({
   device,
   global,
   profile
-})
+});
 
 export default rootReducer

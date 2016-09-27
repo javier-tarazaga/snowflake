@@ -4,6 +4,9 @@
       "name": "Snabb",
       "version": "Version"
     },
+    "General": {
+      "back": "Back"
+    },
     "Header": {
       "current_state": "Current State",
       "see_console": "see console",

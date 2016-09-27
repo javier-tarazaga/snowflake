@@ -15,10 +15,11 @@
  */
 import React from 'react'
 import {
-    AppRegistry,
-    StyleSheet,
-    View,
-    Text } from 'react-native'
+  AppRegistry,
+  StyleSheet,
+  View,
+  Text
+} from 'react-native'
 
 /**
  * ### Router-Flux
@@ -26,8 +27,9 @@ import {
  * Necessary components from Router-Flux
  */
 import {
-    Router,
-    Scene} from 'react-native-router-flux'
+  Router,
+  Scene
+} from 'react-native-router-flux'
 
 /**
  * ### Redux
@@ -35,7 +37,8 @@ import {
  * ```Provider``` will tie the React-Native to the Redux store
  */
 import {
-    Provider} from 'react-redux'
+  Provider
+} from 'react-redux'
 
 /**
  * ### configureStore
@@ -71,6 +74,7 @@ import Profile from './containers/Profile'
 import Main from './containers/Main'
 import Home from './containers/Home'
 import Subview from './containers/Subview'
+import DeliveryAddress from './containers/DeliveryAddress'
 
 /**
  * ### icons
@@ -101,7 +105,8 @@ import ProfileInitialState from './reducers/profile/profileInitialState'
  *  The version of the app but not  displayed yet
  */
 import pack from '../package'
-var VERSION = pack.version
+
+var VERSION = pack.version;
 
 /**
  *
@@ -109,21 +114,20 @@ var VERSION = pack.version
  * Create instances for the keys of each structure in snowflake
  * @returns {Object} object with 4 keys
  */
-function getInitialState () {
-  const _initState = {
+function getInitialState() {
+  return {
     auth: new AuthInitialState(),
     device: (new DeviceInitialState()).set('isMobile', true),
     global: (new GlobalInitialState()),
     profile: new ProfileInitialState()
   }
-  return _initState
 }
 
 const styles = StyleSheet.create({
   tabBar: {
     height: 70
   }
-})
+});
 
 /**
  * ## TabIcon
@@ -131,14 +135,14 @@ const styles = StyleSheet.create({
  * Displays the icon for the tab w/ color dependent upon selection
  */
 class TabIcon extends React.Component {
-  render () {
+  render() {
     var color = this.props.selected ? '#FF3366' : '#FFB3B3'
     return (
       <View style={{flex: 1, flexDirection: 'column', alignItems: 'center', alignSelf: 'center'}}>
-        <Icon style={{color: color}} name={this.props.iconName} size={30} />
+        <Icon style={{color: color}} name={this.props.iconName} size={30}/>
         <Text style={{color: color}}>{this.props.title}</Text>
       </View>
-     )
+    )
   }
 }
 
@@ -151,89 +155,92 @@ class TabIcon extends React.Component {
  * will be used when doing hot loading
  */
 
-export default function native (platform) {
+export default function native(platform) {
   let Snowflake = React.createClass({
     render () {
       const store = configureStore(getInitialState())
 
-            // configureStore will combine reducers from snowflake and main application
-            // it will then create the store based on aggregate state from all reducers
+      // configureStore will combine reducers from snowflake and main application
+      // it will then create the store based on aggregate state from all reducers
       store.dispatch(setPlatform(platform))
       store.dispatch(setVersion(VERSION))
       store.dispatch(setStore(store))
 
-            // setup the router table with App selected as the initial component
-            // note: See https://github.com/aksonov/react-native-router-flux/issues/948
+      // setup the router table with App selected as the initial component
+      // note: See https://github.com/aksonov/react-native-router-flux/issues/948
       return (
 
         <Provider store={store}>
           <Router sceneStyle={{ backgroundColor: 'white' }}>
             <Scene key='root' hideNavBar>
               <Scene key='App'
-                component={App}
-                type='replace'
-                initial />
+                     component={App}
+                     type='replace'
+                     initial/>
 
               <Scene key='Home'
-                component={Home}
-                type='replace' />
+                     component={Home}
+                     type='replace'/>
 
               <Scene key='InitialLoginForm'
-                component={Register}
-                type='replace' />
+                     component={Register}
+                     type='replace'/>
 
               <Scene key='Login'
-                component={Login}
-                type='replace' />
+                     component={Login}
+                     type='replace'/>
 
               <Scene key='Register'
-                component={Register}
-                type='replace' />
+                     component={Register}
+                     type='replace'/>
 
               <Scene key='ForgotPassword'
-                component={ForgotPassword}
-                type='replace' />
+                     component={ForgotPassword}
+                     type='replace'/>
 
               <Scene key='Subview'
-                component={Subview} />
+                     component={Subview}/>
+
+              <Scene key='DeliveryAddress'
+                     component={DeliveryAddress}/>
 
               <Scene key='Tabbar'
-                tabs
-                hideNavBar
-                tabBarStyle={styles.tabBar}
-                default='Home'>
+                     tabs
+                     hideNavBar
+                     tabBarStyle={styles.tabBar}
+                     default='Home'>
 
                 <Scene key='Logout'
-                  title={I18n.t('Snowflake.logout')}
-                  icon={TabIcon}
-                  iconName={"sign-out"}
-                  hideNavBar
-                  component={Logout} />
+                       title={I18n.t('Snowflake.logout')}
+                       icon={TabIcon}
+                       iconName={"sign-out"}
+                       hideNavBar
+                       component={Logout}/>
 
                 <Scene key='Main'
-                  title={I18n.t('Snowflake.main')}
-                  iconName={"home"}
-                  icon={TabIcon}
-                  hideNavBar
-                  component={Main}
-                  initial />
+                       title={I18n.t('Snowflake.main')}
+                       iconName={"home"}
+                       icon={TabIcon}
+                       hideNavBar
+                       component={Main}
+                       initial/>
 
                 <Scene key='Profile'
-                  title={I18n.t('Snowflake.profile')}
-                  icon={TabIcon}
-                  iconName={"gear"}
-                  hideNavBar
-                  component={Profile} />
+                       title={I18n.t('Snowflake.profile')}
+                       icon={TabIcon}
+                       iconName={"gear"}
+                       hideNavBar
+                       component={Profile}/>
               </Scene>
             </Scene>
           </Router>
         </Provider>
       )
     }
-  })
-    /**
-     * registerComponent to the AppRegistery and off we go....
-     */
+  });
 
+  /**
+   * registerComponent to the AppRegistery and off we go....
+   */
   AppRegistry.registerComponent('snowflake', () => Snowflake)
 }
