@@ -35,23 +35,6 @@ class DisplayLatLng extends React.Component {
     this.setState({ region });
   }
 
-  jumpRandom() {
-    this.setState({ region: this.randomRegion() });
-  }
-
-  animateRandom() {
-    this.map.animateToRegion(this.randomRegion());
-  }
-
-  randomRegion() {
-    const { region } = this.state;
-    return {
-      ...this.state.region,
-      latitude: region.latitude + ((Math.random() - 0.5) * (region.latitudeDelta / 2)),
-      longitude: region.longitude + ((Math.random() - 0.5) * (region.longitudeDelta / 2)),
-    };
-  }
-
   render() {
     return (
       <View style={styles.container}>
@@ -91,17 +74,6 @@ const styles = StyleSheet.create({
     width: 200,
     alignItems: 'stretch'
   },
-  button: {
-    width: 80,
-    paddingHorizontal: 12,
-    alignItems: 'center',
-    marginHorizontal: 10
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    marginVertical: 20,
-    backgroundColor: 'transparent'
-  }
 });
 
 module.exports = DisplayLatLng;
